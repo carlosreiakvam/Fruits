@@ -30,7 +30,6 @@ public class Main {
 
     }
 
-
     public static void writeToFile(Fruit fruit) throws IOException {
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("fruits.txt"));
         outputStream.writeObject(fruitArrayList);
@@ -38,7 +37,6 @@ public class Main {
     }
 
     // TODO fix: Read from non existing file results in NullPointerException
-    // TODO fix: Read from existing file only reads one object
     public static void readFromFile() throws ClassNotFoundException, IOException {
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
         fruitArrayList = (ArrayList<Fruit>) inputStream.readObject();
