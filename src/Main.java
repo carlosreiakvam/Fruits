@@ -20,6 +20,7 @@ public class Main {
                     System.out.println("Type of fruit");
                     input.nextLine();
                     String typeOfFruit = input.nextLine();
+                    fruitArrayList.add(new Fruit(typeOfFruit));
                     writeToFile(new Fruit(typeOfFruit));
                 }
                 case 3 -> System.exit(0);
@@ -40,8 +41,7 @@ public class Main {
     // TODO fix: Read from existing file only reads one object
     public static void readFromFile() throws ClassNotFoundException, IOException {
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
-
-//        fruitArrayList.add((Fruit) inputStream.readObject());
+        fruitArrayList = (ArrayList<Fruit>) inputStream.readObject();
         inputStream.close();
     }
 
