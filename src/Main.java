@@ -49,7 +49,7 @@ public class Main {
     }
 
     // TODO fix: Read from non existing file results in NullPointerException
-    // TODO fix: After restart of application nothing is saved
+    // TODO fix: After restart of application new InputStream erases stored files?
     public static void readFromFile() throws ClassNotFoundException, IOException {
         try {
             while (true) {
