@@ -39,7 +39,9 @@ public class Main {
 
     public static void initStreams() throws IOException {
         outputStream = new ObjectOutputStream(new FileOutputStream("fruits.txt"));
-        inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
+
+//        if (!fileExists())
+            inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
     }
 
     public static void writeToFile(Fruit fruit) throws IOException {
@@ -59,11 +61,9 @@ public class Main {
 
     }
 
-/*
     private static boolean fileExists() {
         File temp = new File("fruits.txt");
         return temp.exists();
     }
-*/
 
 }
