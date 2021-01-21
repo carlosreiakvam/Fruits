@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Fruit> fruitArrayList = new ArrayList<>();
-    static ObjectOutputStream outputStream;
-    static ObjectInputStream inputStream;
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
@@ -24,17 +22,11 @@ public class Main {
                     String typeOfFruit = input.nextLine();
                     writeToFile(new Fruit(typeOfFruit));
                 }
-                case 3 -> {
-                    System.exit(0);
-                }
+                case 3 -> System.exit(0);
                 default -> System.out.println("wrong input");
             }
         }
-    }
 
-    private static boolean fileExists() {
-        File temp = new File("fruits.txt");
-        return temp.exists();
     }
 
 
@@ -51,5 +43,12 @@ public class Main {
         fruitArrayList.add((Fruit) inputStream.readObject());
         inputStream.close();
     }
+
+/*
+    private static boolean fileExists() {
+        File temp = new File("fruits.txt");
+        return temp.exists();
+    }
+*/
 
 }
