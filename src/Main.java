@@ -6,14 +6,28 @@ public class Main {
 
     static ArrayList<Fruit> fruitArrayList = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
+
+    private static  ObjectOutputStream outputStream;
+
+    static {
+        try {
+            outputStream = new ObjectOutputStream(new FileOutputStream("fruits.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static ObjectInputStream inputStream;
-    private static ObjectOutputStream outputStream;
+
+    static {
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        // Initialize streams
-        initStreams();
-
-        // Menu
         while (true) {
             System.out.println("1: read, 2 write, 3 exit");
             int userChoice = input.nextInt();
@@ -37,12 +51,6 @@ public class Main {
 
     }
 
-    public static void initStreams() throws IOException {
-        outputStream = new ObjectOutputStream(new FileOutputStream("fruits.txt"));
-
-//        if (!fileExists())
-            inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
-    }
 
     public static void writeToFile(Fruit fruit) throws IOException {
         outputStream.writeObject(fruit);
@@ -61,9 +69,16 @@ public class Main {
 
     }
 
+/*
     private static boolean fileExists() {
         File temp = new File("fruits.txt");
         return temp.exists();
     }
+*/
 
+/*
+    public static void initStreams() throws IOException {
+//        if (!fileExists())
+    }
+*/
 }
