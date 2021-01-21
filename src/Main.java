@@ -26,12 +26,10 @@ public class Main {
                     System.out.println("Type of fruit");
                     input.nextLine();
                     String typeOfFruit = input.nextLine();
-                    fruitArrayList.add(new Fruit(typeOfFruit));
                     writeToFile(new Fruit(typeOfFruit));
                 }
                 case 3 -> {
                     System.exit(0);
-                    inputStream.close();
                 }
                 default -> System.out.println("wrong input");
             }
@@ -46,15 +44,15 @@ public class Main {
 
     public static void writeToFile(Fruit fruit) throws IOException {
         outputStream.writeObject(fruit);
-        outputStream.close();
     }
 
     // TODO fix: Read from non existing file results in NullPointerException
-    // TODO fix: Read from existing file only reads one object
+    // TODO fix: After restart of application nothing is saved
     public static void readFromFile() throws ClassNotFoundException, IOException {
         try {
-            while (true)
+            while (true) {
                 fruitArrayList.add((Fruit) inputStream.readObject());
+            }
         } catch (EOFException e) {
             System.out.println("end of file detected");
         }
