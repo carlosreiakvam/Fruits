@@ -42,9 +42,7 @@ public class Main {
                     String typeOfFruit = input.nextLine();
                     writeToFile(new Fruit(typeOfFruit));
                 }
-                case 3 -> {
-                    System.exit(0);
-                }
+                case 3 -> System.exit(0);
                 default -> System.out.println("wrong input");
             }
         }
