@@ -45,7 +45,7 @@ public class Main {
     }
 
     public static void writeToFile(Fruit fruit) throws IOException {
-        outputStream.writeObject(fruitArrayList);
+        outputStream.writeObject(fruit);
         outputStream.close();
     }
 
