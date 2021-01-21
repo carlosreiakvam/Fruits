@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         while (true) {
-            System.out.println("1: write, 2 read, 3 exit");
+            System.out.println("1: read, 2 write, 3 exit");
             int userChoice = input.nextInt();
             switch (userChoice) {
                 case 1 -> {
@@ -32,7 +32,7 @@ public class Main {
 
     public static void writeToFile(Fruit fruit) throws IOException {
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("fruits.txt"));
-        outputStream.writeObject(fruit);
+        outputStream.writeObject(fruitArrayList);
         outputStream.close();
     }
 
@@ -40,7 +40,8 @@ public class Main {
     // TODO fix: Read from existing file only reads one object
     public static void readFromFile() throws ClassNotFoundException, IOException {
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("fruits.txt"));
-        fruitArrayList.add((Fruit) inputStream.readObject());
+
+//        fruitArrayList.add((Fruit) inputStream.readObject());
         inputStream.close();
     }
 
